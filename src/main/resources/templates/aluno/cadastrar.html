@@ -1,0 +1,48 @@
+<html xmlns:th="http://www.thymeleaf.com">
+
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="formulario" class="container">
+        <h3 class="main-title center">CADASTRAR ALUNO:</h3>
+        <div class="row">
+            <form class="col s12" action="#" th:action="@{/aluno/salvar}" th:object="${aluno}" method="post">
+                <div class="section">
+                    <h5>DADOS DO ALUNO</h5>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="nome" type="text" th:field="*{nome}">
+                            <label for="nome">NOME</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="idade" type="date" class="datepicker" th:field="*{idade}">
+                            <label for="idade">IDADE</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="curso" type="text" th:field="*{curso}">
+                            <label for="curso">CURSO</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">SALVAR</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+</body>
+
+</html>

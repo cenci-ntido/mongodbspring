@@ -1,0 +1,60 @@
+<html xmlns:th="http://www.thymeleaf.com">
+
+<head>
+    <title>Listar Alunos</title>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="grey lighten-2">
+    <div class="listaDeAlunos">
+        <h3 class="main-title center">Lista de Alunos</h3>
+        <div class="container">
+            <table class="striped responsive-table">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Nome</th>
+                        <th style="text-align: center;">Data de Nascimento</th>
+                        <th style="text-align: center;">Ações</th>
+                    </tr>
+                </thead>
+
+                <tr th:each="aluno : ${alunos}">
+                    <td style="text-align: center;">
+                        <span th:text="${aluno.nome}">
+
+                        </span>
+                    </td>
+                    <td style="text-align: center;">
+                        <span th:text="${#temporals.format(aluno.idade, 'dd/MM/yyyy')}">
+
+                        </span>
+                    </td>
+                    <td style="text-align: center;">
+                        <a th:href="@{'/aluno/visualizar'+${aluno.id}}" title="Visualizar">
+                            <i class="tiny material-icons">
+                                perm_contact
+                            </i>
+                        </a>
+                        <a th:href="@{'/disciplina/cadastrar/'+${aluno.id}}" title="Cadastrar Disciplina">
+                            <i class="tiny material-icons">
+                                school
+                            </i>
+                        </a>
+                        <a th:href="@{'/nota/cadastrar/'+${aluno.id}}" title="Cadastrar Nota">
+                            <i class="tiny material-icons">
+                                spellcheck
+                            </i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
+</body>
+
+</html>
